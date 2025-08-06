@@ -1,0 +1,54 @@
+{
+  "manifest_version": 3,
+  "name": "Kingdom Pilot",
+  "version": "0.0.1",
+  "description": "Lands Controller is a powerful Chrome extension designed for MyLands players who want to optimize their strategy and save time. The extension acts as a smart assistant, helping you manage your lands, resources, and armies more efficiently",
+  "permissions": [
+    "activeTab",
+    "storage"
+  ],
+  "host_permissions": [
+    "*://*.mlgame.ru/*",
+    "*://*.mlgame.com/*",
+    "*://*.mlgame.org/*",
+    "*://*.mlgame.net/*"
+  ],
+  "background": {
+    "service_worker": "background-entry.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.mlgame.com/*",
+        "*://*.mlgame.org/*",
+        "*://*.mlgame.net/*"
+      ],
+      "js": [
+        "inject-entry.js"
+      ],
+      "all_frames": true
+    }
+  ],
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MLGame Extension",
+    "default_icon": {
+      "80": "icon80.png"
+    }
+  },
+  "icons": {
+    "80": "icon80.png"
+  },
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "content-entry.js"
+      ],
+      "matches": [
+        "*://*.mlgame.com/*",
+        "*://*.mlgame.org/*",
+        "*://*.mlgame.net/*"
+      ]
+    }
+  ]
+}

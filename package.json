@@ -1,0 +1,39 @@
+{
+  "name": "kingdom-pilot",
+  "version": "0.0.1",
+  "description": "Chrome extension assistant for MyLands game players",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "bun run build.ts --dev",
+    "build": "bun run build:clean && bun run build:extension",
+    "build:clean": "rm -rf build/*",
+    "build:extension": "bun build:script",
+    "build:watch": "bun --watch build:script",
+    "build:script": "bun run build.ts",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint src --ext .ts,.tsx",
+    "lint:fix": "eslint src --ext .ts,.tsx --fix",
+    "format": "prettier --write src/**/*.{ts,tsx}",
+    "check": "bun run format && bun run lint:fix && bun run typecheck",
+    "test": "echo 'Tests not configured yet'"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.2.19",
+    "@types/chrome": "^0.0.268",
+    "@types/node": "^24.2.0",
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "@typescript-eslint/eslint-plugin": "^7.18.0",
+    "@typescript-eslint/parser": "^7.18.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-react": "^7.34.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "prettier": "^3.2.0",
+    "typescript": "^5.5.0"
+  },
+  "dependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0"
+  }
+}
